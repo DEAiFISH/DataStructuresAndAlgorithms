@@ -57,7 +57,7 @@ public class 稀疏数组 {
      */
     public static void ToSparseArray(int[][] arr, int sum) {
         int len = arr.length;
-        int count = 1;
+        int count = 0;
         int[][] SparseArr = new int[sum + 1][3];
 
         //  rows   cols   value
@@ -67,8 +67,8 @@ public class 稀疏数组 {
         //   2      5       1
 
 
-        SparseArr[0][0] = SparseArr[0][1] = len;
-        SparseArr[0][2] = sum;
+        SparseArr[count][0] = SparseArr[count][1] = len;
+        SparseArr[count++][2] = sum;
 
         //记录稀疏数组
         for (int i = 0; i < len; i++) {
