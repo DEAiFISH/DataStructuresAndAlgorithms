@@ -14,6 +14,11 @@ public class Calculator {
         signStack = new ArrayStack(20);
     }
 
+    /**
+     * 计算
+     * @param str 计算式
+     * @return 结果
+     */
     public double calculate(String str) {
         for (int i = 0;i < str.length();i++) {
             char c = str.charAt(i);
