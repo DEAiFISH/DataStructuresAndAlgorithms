@@ -54,15 +54,9 @@ public class Graph {
         Graph pG;
         // 自定义"图"(输入矩阵队列)
         // 采用已有的"图"
-        long start = System.nanoTime();
 
-        for (int i = 0; i < 10000; i++) {
-            pG = new Graph(vexs, edges);
-//            pG.print();   // 打印图
-        }
+        pG = new Graph(vexs, edges);
+        pG.print();   // 打印图
 
-        long end = System.nanoTime();
-
-        System.out.println(end - start);
     }
 }
