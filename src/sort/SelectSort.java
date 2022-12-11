@@ -5,6 +5,7 @@ public class SelectSort extends Sort {
         TestTIme.test(new SelectSort());//消耗时间：1635毫秒
     }
 
+    @Override
     public void sort(int[] arr) {
         //left指针指向无序边界起点，right指针指向终点，temp用作临时变量交换值
         int left, right, temp;

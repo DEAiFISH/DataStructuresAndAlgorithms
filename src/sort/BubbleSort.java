@@ -5,6 +5,7 @@ public class BubbleSort extends Sort {
         TestTIme.test(new BubbleSort());//消耗时间：8374毫秒
     }
 
+    @Override
     //冒泡排序优化2
     public void sort(int[] arr) {
         int len = arr.length;

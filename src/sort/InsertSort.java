@@ -5,6 +5,7 @@ public class InsertSort extends Sort {
         TestTIme.test(new InsertSort());//消耗时间：8417毫秒
     }
 
+    @Override
     //插入排序 insection sort
     public void sort(int[] arr) {
 
