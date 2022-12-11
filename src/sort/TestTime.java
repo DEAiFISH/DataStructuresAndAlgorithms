@@ -1,6 +1,6 @@
 package sort;
 
-public interface TestTIme {
+public interface TestTime {
     final int MAX = 80000;
 
     public static void test(Sort sort) {

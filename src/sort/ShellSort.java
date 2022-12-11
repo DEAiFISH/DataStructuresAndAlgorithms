@@ -2,7 +2,7 @@ package sort;
 
 public class ShellSort extends Sort {
     public static void main(String[] args) {
-        TestTIme.test(new ShellSort());//消耗时间：7毫秒
+        TestTime.test(new ShellSort());//消耗时间：7毫秒
     }
 
     /**

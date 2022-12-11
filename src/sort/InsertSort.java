@@ -2,7 +2,7 @@ package sort;
 
 public class InsertSort extends Sort {
     public static void main(String[] args) {
-        TestTIme.test(new InsertSort());//消耗时间：8417毫秒
+        TestTime.test(new InsertSort());//消耗时间：8417毫秒
     }
 
     @Override

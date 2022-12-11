@@ -2,7 +2,7 @@ package sort;
 
 public class BubbleSort extends Sort {
     public static void main(String[] args) {
-        TestTIme.test(new BubbleSort());//消耗时间：8374毫秒
+        TestTime.test(new BubbleSort());//消耗时间：8374毫秒
     }
 
     @Override

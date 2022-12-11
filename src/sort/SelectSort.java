@@ -2,7 +2,7 @@ package sort;
 
 public class SelectSort extends Sort {
     public static void main(String[] args) {
-        TestTIme.test(new SelectSort());//消耗时间：1635毫秒
+        TestTime.test(new SelectSort());//消耗时间：1635毫秒
     }
 
     @Override
