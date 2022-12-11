@@ -1,6 +1,6 @@
 package recursion;
 
-public class Queen8Demo{
+public class Queen8Demo {
     public static void main(String[] args) {
         Queen8 queen8 = new Queen8();
         queen8.check(0);
@@ -55,10 +55,11 @@ class Queen8 {
 
     /**
      * 编写一个方法，放置第n个皇后
+     *
      * @param n
      */
     public void check(int n) {
-        if(n == max){
+        if (n == max) {
             print();
             return;
         }
@@ -68,7 +69,7 @@ class Queen8 {
             //把先前这个皇后n，放置到该行第一列
             array[n] = i;
             //判断当防止第n个皇后到i列时，是否冲突
-            if(judge(n)){
+            if (judge(n)) {
                 //接着放n+1个皇后，即开始递归
                 check(n + 1);
             }

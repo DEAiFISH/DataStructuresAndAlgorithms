@@ -78,7 +78,7 @@ class ArrayStack {
     /**
      * 显示栈
      */
-    public void show(){
+    public void show() {
         for (int i = top; i >= 0; i--) {
             System.out.println(stack[i]);
         }

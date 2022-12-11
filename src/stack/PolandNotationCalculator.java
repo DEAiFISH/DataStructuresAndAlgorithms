@@ -8,16 +8,17 @@ import java.util.Stack;
  * 逆波兰计算器
  */
 public class PolandNotationCalculator {
+    public PolandNotationCalculator() {
+    }
+
     public static void main(String[] args) {
         PolandNotationCalculator calculator = new PolandNotationCalculator();
         System.out.println(calculator.calculate("(12+5)*(8-1)-6*6"));
     }
 
-    public PolandNotationCalculator() {
-    }
-
     /**
      * 计算
+     *
      * @param calculation 逆波兰表达式
      * @return 结果
      */
@@ -55,6 +56,7 @@ public class PolandNotationCalculator {
 
     /**
      * 中缀表达式转为List集合
+     *
      * @param str 中缀表达式
      * @return List集合
      */
@@ -79,32 +81,33 @@ public class PolandNotationCalculator {
 
     /**
      * 中缀表达式列表转换为后缀表达式列表
+     *
      * @param list 中缀表达式列表
      * @return 后缀表达式列表
      */
-    private List<String> parseSuffixExpressionList(List<String> list){
+    private List<String> parseSuffixExpressionList(List<String> list) {
         Stack<String> s1 = new Stack<>();
         Stack<String> s2 = new Stack<>();
 
         //从左向右依次入栈
-        for (String str :list) {
-            if(str.matches("\\d+")){
+        for (String str : list) {
+            if (str.matches("\\d+")) {
                 //数字直接入s2栈
                 s2.push(str);
             } else if ("(".equals(str)) {
                 //左括号直接入s1栈
                 s1.push(str);
-            } else if(")".equals(str)){
+            } else if (")".equals(str)) {
                 //右括号 依次弹出s1栈并押入s2栈 直到遇到左括号 最后弹出左括号
-                while(!"(".equals(s1.peek())){
+                while (!"(".equals(s1.peek())) {
                     s2.push(s1.pop());
                 }
                 s1.pop();
-            }else{
+            } else {
                 //如果s1不为空并且读取到的符号的优先级小于s1栈顶符号的优先级
                 //弹出s1并压入s2
                 //直到条件为false
-                while(!s1.isEmpty() && priority(s1.peek().charAt(0)) >= priority(str.charAt(0))){
+                while (!s1.isEmpty() && priority(s1.peek().charAt(0)) >= priority(str.charAt(0))) {
                     s2.push(s1.pop());
                 }
                 s1.push(str);
@@ -113,7 +116,7 @@ public class PolandNotationCalculator {
 
         //转为List
         ArrayList<String> res = new ArrayList<>(s2);
-        while (!s1.isEmpty()){
+        while (!s1.isEmpty()) {
             res.add(s1.pop());
         }
 
@@ -122,15 +125,16 @@ public class PolandNotationCalculator {
 
     /**
      * 符号优先级
+     *
      * @param sign
      * @return
      */
-    private int priority(int sign){
-        if(sign == '*' || sign == '/'){
+    private int priority(int sign) {
+        if (sign == '*' || sign == '/') {
             return 1;
         } else if (sign == '(' || sign == ')') {
             return -1;
-        } else{
+        } else {
             return 0;
         }
     }

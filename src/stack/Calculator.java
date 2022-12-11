@@ -1,19 +1,18 @@
 package stack;
 
 public class Calculator {
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-        System.out.println(calculator.calculate("10+1*2+3*4/5"));
-    }
-
     //数字栈
     private ArrayStack digitStack;
     //符号栈
     private ArrayStack signStack;
-
     public Calculator() {
         digitStack = new ArrayStack(20);
         signStack = new ArrayStack(20);
+    }
+
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.calculate("10+1*2+3*4/5"));
     }
 
     /**

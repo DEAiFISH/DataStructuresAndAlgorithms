@@ -2,6 +2,7 @@ package linkedList;
 
 public class DoubleLinkedListDemo {
 }
-class DoubleLinkedList{
+
+class DoubleLinkedList {
 
 }

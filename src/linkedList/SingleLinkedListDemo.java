@@ -172,11 +172,10 @@ class SingleLinkedList {
 
     /**
      * 逆序输出链表
-     *
      */
-    public void LastPrint(){
+    public void LastPrint() {
         //方法一 ： 栈方法
-        if(head.next == null){
+        if (head.next == null) {
             System.out.println("链表为空。。。");
             return;
         }
@@ -184,12 +183,12 @@ class SingleLinkedList {
         Student temp = head.next;
         Stack<Student> stack = new Stack<>();
 
-        while(temp != null){
+        while (temp != null) {
             stack.push(temp);
             temp = temp.next;
         }
 
-        while(stack.size() > 0){
+        while (stack.size() > 0) {
             System.out.println(stack.pop());
         }
 

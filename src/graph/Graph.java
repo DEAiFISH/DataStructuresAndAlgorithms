@@ -21,24 +21,6 @@ public class Graph {
 
     }
 
-    //图的遍历输出
-    public void print() {
-        for (int[] i : matrix) {
-            for (int j : i) {
-                System.out.print(j + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    //根据顶点名称获取对应的矩阵下标
-    private int getPosition(char ch) {
-        for (int i = 0; i < vertexs.length; i++)
-            if (vertexs[i] == ch)
-                return i;
-        return -1;
-    }
-
     public static void main(String[] args) {
         char[] vexs = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'};
         char[][] edges = new char[][]{
@@ -58,5 +40,23 @@ public class Graph {
         pG = new Graph(vexs, edges);
         pG.print();   // 打印图
 
+    }
+
+    //图的遍历输出
+    public void print() {
+        for (int[] i : matrix) {
+            for (int j : i) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    //根据顶点名称获取对应的矩阵下标
+    private int getPosition(char ch) {
+        for (int i = 0; i < vertexs.length; i++)
+            if (vertexs[i] == ch)
+                return i;
+        return -1;
     }
 }

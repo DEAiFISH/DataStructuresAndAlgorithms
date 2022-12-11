@@ -22,7 +22,7 @@ public class 稀疏数组 {
 
             array[row][col] = count++;
             sum++;
-            
+
 
             //输入一次 打印一次
             for (int[] arr : array) {

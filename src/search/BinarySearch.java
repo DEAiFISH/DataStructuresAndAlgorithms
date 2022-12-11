@@ -2,11 +2,10 @@ package search;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] array = {1, 23, 5, 23, -2, 24, 102, 90, -23, -45, 99, 231,231, 143, -438};
+        int[] array = {1, 23, 5, 23, -2, 24, 102, 90, -23, -45, 99, 231, 231, 143, -438};
 
         //二分法查找，查找的必须是在有序数组中
         Arrays.sort(array);
@@ -43,14 +42,14 @@ public class BinarySearch {
 
             //向左移动
             int temp = mid - 1;
-            while (temp >= 0 && array[temp] == findValue){
+            while (temp >= 0 && array[temp] == findValue) {
                 resIndexList.add(temp--);
             }
 
             resIndexList.add(mid);
             //向右移动
             temp = mid + 1;
-            while(temp < array.length && array[temp] == findValue){
+            while (temp < array.length && array[temp] == findValue) {
                 resIndexList.add(temp++);
             }
             return resIndexList;
