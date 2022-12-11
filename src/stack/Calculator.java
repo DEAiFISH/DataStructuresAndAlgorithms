@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 public class Calculator {
     public static void main(String[] args) {
@@ -6,7 +6,9 @@ public class Calculator {
         System.out.println(calculator.calculate("10+1*2+3*4/5"));
     }
 
+    //数字栈
     private ArrayStack digitStack;
+    //符号栈
     private ArrayStack signStack;
 
     public Calculator() {
@@ -16,25 +18,29 @@ public class Calculator {
 
     /**
      * 计算
+     *
      * @param str 计算式
      * @return 结果
      */
     public double calculate(String str) {
-        for (int i = 0;i < str.length();i++) {
+        //从左向右依次入栈
+        for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (Character.isDigit(c)) {
+            if (Character.isDigit(c)) {//数字直接入栈
                 int num = c - '0';
                 i++;
-                while(i < str.length() && Character.isDigit(str.charAt(i))) {
+                while (i < str.length() && Character.isDigit(str.charAt(i))) {//考虑多位数的情况
                     num = (str.charAt(i++) - '0') + num * 10;
                 }
                 digitStack.push(num);
                 i--;
-            }  else {
-                if (!signStack.isEmpty() && priority(c) <= priority((int)signStack.peek())) {
+            } else {
+                if (!signStack.isEmpty() && priority(c) <= priority((int) signStack.peek())) {
+                    //如果栈为空或者读取到的符号的优先级小于符号栈栈顶符号的优先级
+                    //先计算上一个符号并将结果压入数栈
                     double x = digitStack.pop();
                     double y = digitStack.pop();
-                    int sign = (int)signStack.pop();
+                    int sign = (int) signStack.pop();
                     if (sign == '*') {
                         digitStack.push(y * x);
                     } else {
@@ -47,10 +53,11 @@ public class Calculator {
             }
         }
 
+        //依次弹出 计算 最后数栈中剩下的就是结果
         while (!signStack.isEmpty()) {
             double x = digitStack.pop();
             double y = digitStack.pop();
-            int sign = (int)signStack.pop();
+            int sign = (int) signStack.pop();
             switch (sign) {
                 case '+':
                     digitStack.push(y + x);
@@ -70,13 +77,14 @@ public class Calculator {
 
     /**
      * 符号优先级
+     *
      * @param sign
      * @return
      */
-    private int priority(int sign){
-        if(sign == '*' || sign == '/'){
+    private int priority(int sign) {
+        if (sign == '*' || sign == '/') {
             return 1;
-        }else{
+        } else {
             return 0;
         }
     }
@@ -153,15 +161,5 @@ public class Calculator {
             }
             return stack[top];
         }
-
-        /**
-         * 显示栈
-         */
-        public void show() {
-            for (int i = top; i >= 0; i--) {
-                System.out.println(stack[i]);
-            }
-        }
-
     }
 }

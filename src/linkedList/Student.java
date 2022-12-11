@@ -1,4 +1,4 @@
-package LinkedList;
+package linkedList;
 
 import org.jetbrains.annotations.NotNull;
 

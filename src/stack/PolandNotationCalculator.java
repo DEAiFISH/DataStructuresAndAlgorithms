@@ -1,4 +1,4 @@
-package Stack;
+package stack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,7 @@ public class PolandNotationCalculator {
         Stack<String> stack = new Stack<>();
         List<String> suffixExpression = parseSuffixExpressionList(toInfixExpressionList(calculation));
 
+        //依次读取后缀表达式
         for (String str : suffixExpression) {
             if (str.matches("\\d+")) {
                 stack.push(str);
@@ -59,9 +60,10 @@ public class PolandNotationCalculator {
      */
     private List<String> toInfixExpressionList(String str) {
         ArrayList<String> list = new ArrayList<>();
+        //从左向右依次入列
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (Character.isDigit(c)) {
+            if (Character.isDigit(c)) {//考虑多位数
                 StringBuilder num = new StringBuilder();
                 while (i < str.length() && Character.isDigit(str.charAt(i))) {
                     num.append(str.charAt(i++));
@@ -84,17 +86,24 @@ public class PolandNotationCalculator {
         Stack<String> s1 = new Stack<>();
         Stack<String> s2 = new Stack<>();
 
+        //从左向右依次入栈
         for (String str :list) {
             if(str.matches("\\d+")){
+                //数字直接入s2栈
                 s2.push(str);
             } else if ("(".equals(str)) {
+                //左括号直接入s1栈
                 s1.push(str);
             } else if(")".equals(str)){
+                //右括号 依次弹出s1栈并押入s2栈 直到遇到左括号 最后弹出左括号
                 while(!"(".equals(s1.peek())){
                     s2.push(s1.pop());
                 }
                 s1.pop();
             }else{
+                //如果s1不为空并且读取到的符号的优先级小于s1栈顶符号的优先级
+                //弹出s1并压入s2
+                //直到条件为false
                 while(!s1.isEmpty() && priority(s1.peek().charAt(0)) >= priority(str.charAt(0))){
                     s2.push(s1.pop());
                 }
@@ -102,6 +111,7 @@ public class PolandNotationCalculator {
             }
         }
 
+        //转为List
         ArrayList<String> res = new ArrayList<>(s2);
         while (!s1.isEmpty()){
             res.add(s1.pop());
@@ -118,7 +128,7 @@ public class PolandNotationCalculator {
     private int priority(int sign){
         if(sign == '*' || sign == '/'){
             return 1;
-        } else if (sign == '(') {
+        } else if (sign == '(' || sign == ')') {
             return -1;
         } else{
             return 0;
