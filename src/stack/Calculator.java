@@ -5,6 +5,7 @@ public class Calculator {
     private ArrayStack digitStack;
     //符号栈
     private ArrayStack signStack;
+
     public Calculator() {
         digitStack = new ArrayStack(20);
         signStack = new ArrayStack(20);

@@ -6,7 +6,8 @@ public class ShellSort extends Sort {
     }
 
     /**
-     *  移位法（优化）
+     * 移位法（优化）
+     *
      * @param arr 待排序数组
      */
     @Override
@@ -32,6 +33,7 @@ public class ShellSort extends Sort {
 
     /**
      * 交换法
+     *
      * @param arr 待排序数组
      */
     public void sort1(int[] arr) {
