@@ -1,5 +1,11 @@
 package sort;
 
+/**
+ * 描述：在区间中挑选一个元素作基准，将小于基准的元素放在基准之前，大于基准的元索放在基准之后，再分别对小数区与大数区进行排序。
+ * 特点：（小数，基准元素，大数）
+ * 时间复杂度：O(n*n)
+ * 稳定性：不稳定
+ */
 public class QuickSort extends Sort {
     public static void main(String[] args) {
         TestTime.test(new QuickSort());//消耗时间：9毫秒

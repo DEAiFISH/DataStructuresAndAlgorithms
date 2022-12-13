@@ -1,5 +1,10 @@
 package sort;
 
+/**
+ * 描述：每一轮按照事先决定的间隔进行插入排序，间隔会依次缩小，最后一次一定要是1。
+ * 时间复杂度：O(n*n)
+ * 稳定性：不稳定
+ */
 public class ShellSort extends Sort {
     public static void main(String[] args) {
         TestTime.test(new ShellSort());//消耗时间：7毫秒

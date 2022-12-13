@@ -1,5 +1,11 @@
 package sort;
 
+/**
+ * 描述：在无序区中找一个最小元素跟在有序区最后。
+ * 特点：（有序区，无序区）
+ * 时间复杂度：O(n*n)
+ * 稳定性：不稳定
+ */
 public class SelectSort extends Sort {
     public static void main(String[] args) {
         TestTime.test(new SelectSort());//消耗时间：1635毫秒

@@ -1,5 +1,11 @@
 package sort;
 
+/**
+ * 描述：把无序区第一个元素插入到有序区合适的位置
+ * 特点：（有序区，无序区）
+ * 时间复杂度：O(n*n)
+ * 稳定性：稳定
+ */
 public class InsertSort extends Sort {
     public static void main(String[] args) {
         TestTime.test(new InsertSort());//消耗时间：8417毫秒

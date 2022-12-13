@@ -1,5 +1,11 @@
 package sort;
 
+/**
+ * 描述：在无序区交换找到最大元素放到有序区前端
+ * 特点：（无序区，有序区）
+ * 时间复杂度：O(n*n)
+ * 稳定性：稳定
+ */
 public class BubbleSort extends Sort {
     public static void main(String[] args) {
         TestTime.test(new BubbleSort());//消耗时间：8374毫秒
